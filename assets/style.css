@@ -1,0 +1,669 @@
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.logo{
+  width: 200px;
+  margin: 0;
+  padding-top: 0.1em;
+  padding-bottom: 0.5em;
+}
+
+@media (max-width: 800px){
+  .logo{
+    width: 100px;
+    padding-left: 0.3em;
+    padding-bottom: 0;
+  } 
+}
+
+body {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+}
+
+header h1{
+  font-family: 'Sacramento', cursive;
+  color: white;
+  font-size: 4rem;
+}
+
+.hero {
+  display: flex;
+}
+
+.intro{
+  width: 40%;
+}
+
+.headings{
+  width: 40%;
+  position: absolute;
+  top: 38% ;
+  left: 5%;
+  margin-right: 5em;
+}
+
+.headings h1{
+  font-size: 5rem;
+  margin-top: 0;
+}
+
+.headings h2{
+  font-size: 2.5rem;
+}
+
+
+
+.headings h3{
+  padding-top: 1em;
+  font-size: 1.5rem;
+}
+.hero-image{
+  width: 60%;
+  height: 80vh;
+  margin-top: 3em;
+  margin-right: 1em;
+  padding: 0;
+  background:url(../images/hero.jpg) ;
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 5px 5px 5px 5px #888888;
+  z-index: -1!important;
+}
+
+
+
+@media (max-width:1280px) {
+  .hero{
+    flex-direction: column-reverse;
+  }
+  .hero-image{
+    width: 100%;
+    height: 80vh;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    background:url(../images/hero.jpg) ;
+    background-size: contain;
+    background-position:center;
+    background-repeat: no-repeat;
+  }
+  .headings{
+    width: 100%;
+  }
+
+  @media (max-width:908px) {
+    .hero-image{
+      height: 35vh;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      background:url(../images/hero.jpg) ;
+      background-size: contain;
+      background-position:center;
+      background-repeat: no-repeat;
+    
+    }
+  }
+  .intro{
+    width: 100%;
+  }
+  .headings{
+    position: relative;
+    text-align: center;
+    top: 0 ;
+    left: 0;
+    margin-bottom: 1em;
+  }
+  
+  .headings h1{
+    font-size: 5rem;
+  }
+  
+  
+  
+  .headings h3{
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 800px){
+  .headings h2{
+    font-size: 2.2rem;
+  }
+  } 
+
+
+
+
+/* navigation styles start here */
+
+header {
+  background: #454555;
+  text-align: left;
+  position: relative;
+  width: 100%;
+  padding: 0.1em 0;
+}
+
+
+/* changed this from the tutorial video to
+   allow it to gain focus, making it tabbable */
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+  outline: 3px solid rgba(lightblue, .75);
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 1em;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: rgba(171, 169, 187, 0.9);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+nav li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  padding: 0;
+  font-weight:bold;
+}
+
+nav a {
+  color:white;
+  margin-bottom: 1em;
+  
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: #007aef;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+  .logo {
+    grid-column: 2 / 3;
+  }
+  
+  nav {
+    /* all: unset; /* this causes issues with Edge, since it's unsupported */
+    
+    /* the following lines are not from my video, but add Edge support */
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1,1);
+    background: none;
+    top: initial;
+    left: initial;
+    /* end Edge support stuff */
+    
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    margin-left: 3em;
+  }
+  
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: #4162e4;
+    position: absolute;
+    bottom: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+  
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+}
+
+.container-about{
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.col1{
+  width: 50%;
+}
+.col2{
+  width: 50%;
+}
+
+.list-title{
+  display: block;
+width: 120px;
+float: left;
+font-size: 0.98em;
+font-weight: 700;
+line-height: 35px;
+text-transform: uppercase;
+}
+
+.cont {
+  display: block;
+  margin-left: 160px;
+  font-size: 0.98em;
+  line-height: 35px;
+  
+}
+
+
+.exp-description h2{
+  font-size: 33px;
+}
+
+
+@media (max-width:1280px) {
+  .col2{
+    width: 100%
+  }
+  .col1{
+    width:100%
+  }
+}
+
+.col1 img{
+  width: 200px;
+  border: 1px;
+  border-radius: 50%; 
+  border: 1px;
+  margin-left: 4.5em;
+  margin-top: 5em;
+  
+}
+
+
+
+.exp-description{
+  margin: 0 5em;
+  font-family:"Poppins",sans-serif;
+}
+
+.exp-description h2{
+  font-size: 33px;
+  margin-top: 0.1em;
+}
+
+.exp-description ul{
+  margin: 0;
+  padding: 0;
+}
+
+
+.exp-description ul li{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width:1280px){
+  .exp-description{
+    margin: 0 1em;
+  }
+  .exp-description h2{
+    text-align: center;
+  }
+
+}
+/*skill bars*/
+
+.wrapper{
+  width: 100%;
+  min-width: 390px; 
+  padding-top: 1.7em;
+  margin: 0;
+  
+}
+.section-skills{
+  width: 100%;
+  padding: 0;
+  background-color: white;
+  border: 2px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  margin-top: 5em;
+
+} 
+.section-skills *{
+  font-family: "Poppins",sans-serif;
+  color: black;
+  font-weight: 500;
+}
+.section-skills h2{
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  text-align: letf;
+  font-size: 33px;
+  font-weight: bold;
+}
+.skills:not(:last-child){
+  margin-bottom: 30px;
+}
+.details{
+  width: 100%;
+  display: flex;  
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.bar{
+  position: relative;
+
+  border: 2px solid #0d96e0;
+
+  border-radius: 20px;
+
+}
+.bar div{
+  position: relative;
+  width: 0;
+  height: 9px;
+  border-radius: 10px;
+  background-color: #0d96e0;
+ 
+
+}
+#html-bar{
+  animation: html-fill 2s forwards;
+}
+@keyframes html-fill{
+  100%{
+      width: 90%;
+  }
+}
+#css-bar{
+  animation: css-fill 2s forwards;
+}
+@keyframes css-fill{
+  100%{
+      width: 75%;
+  }
+}
+#js-bar{
+  animation: js-fill 2s forwards;
+}
+@keyframes js-fill {
+  100%{
+      width: 72%;
+  }
+}
+#jQuery-bar{
+  animation: jQuery-fill 2s forwards;
+}
+@keyframes jQuery-fill{
+  100%{
+      width: 58%;
+  }
+} 
+
+@media (max-width: 1280px){
+  .container-about{
+    flex-direction: column;
+  }
+  .section-skills h2{
+    text-align: center;
+  }
+  .col1 img{
+    margin: 0;
+  }
+  .image{
+    text-align: center;
+  }
+}
+
+
+.contact{
+  text-align: center;
+  margin: 5em;
+}
+
+.contact h1{
+  font-size: 3rem;
+}
+
+.contact h2{
+  font-size: 2rem;
+}
+
+.icons{
+  margin: 2em;
+  font-size: 4em;
+  color: #007aef;
+}
+
+.fab{
+  color: purple;
+}
+
+#portfolio h1{
+  text-align: center;
+  font-size: 3em;
+}
+
+footer{
+  background: #454555;
+  padding-bottom: 2em;
+}
+
+footer h2{
+  text-align: center;
+  padding-top: 1em;
+  font-size: 2.5em;
+  color: white;
+  
+}
+
+footer ul{
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+}
+footer li{
+  list-style:none;
+  text-align: center;
+  margin: 1em;
+   
+}
+
+footer a{
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 1.6em;
+  font-weight: 800;
+}
+
+footer a:hover{
+  
+  color: #4162e4;
+  
+}
+
+#portfolio {
+  margin-top: 150px;
+  
+}
+
+#contact {
+  margin-top: 150px;
+}
+
+.copy{
+  background: #000;
+  text-align: center;
+  margin: 0;
+  padding: 0.1em;
+  color: white;
+}
+
+form{
+  margin-top: 50px;
+}
+
+
+
+.form-control{
+  width: 600px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+input{
+  height: 45px;
+}
+
+textarea{
+  height: 100px;
+}
+
+input.submit{
+  background: #454555;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 40px;
+  border: none;
+  color: white;
+
+}
+
+input.submit:hover{
+  background:transparent;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 40px;
+  border:1px solid #454555;
+  color:black;
+  cursor: pointer;
+
+}
+
+
+@media (max-width:720px) {
+  .icons{
+    margin: 0;
+  }
+  .contact{
+    margin: 0;
+  }
+  
+  section{
+    padding:0 10px;
+  }
+}
+
+.form-control{
+  width: 400px;
+}
+
