@@ -523,7 +523,7 @@ text-transform: uppercase;
 
 .contact{
   text-align: center;
-  margin: 5em;
+  margin-bottom: 5em;
 }
 
 .contact h1{
@@ -591,9 +591,6 @@ footer a:hover{
 }
 
 
-#contact {
-  margin-top: 150px;
-}
 
 
 
@@ -654,6 +651,7 @@ input.submit:hover{
 }
 
 
+
 @media (max-width:720px) {
   .icons{
     margin: 0;
@@ -666,7 +664,7 @@ input.submit:hover{
     padding:0 10px;
   }
   .form-control{
-    width: 100%;
+    width: 90%;
   }
 
 
