@@ -564,10 +564,20 @@ footer h2{
   
 }
 
-footer ul{
+.f-ul ,.l-ul{
   display: flex;
   justify-content: center;
-  padding-left: 0;
+  
+}
+
+.f-ul{
+  margin: 1em;
+  padding: 0;
+}
+
+.l-ul{
+  margin: 0;
+  padding: 0;
 }
 footer li{
   list-style:none;
@@ -683,7 +693,7 @@ input.submit:hover{
 .fcontact{
   font-size: 18px;
   font-weight: 600;
-  padding-top: 10px;
+  padding-top: 3em;
 }
 
 .contact h1{
@@ -693,4 +703,40 @@ input.submit:hover{
 
 .socials{
   margin-top: 50px;
+}
+
+.f-contact-wrapper{
+  text-align: center;
+  font-size: 18px;
+  margin: 2em 0;
+}
+
+.f-email{
+  padding: 0 10px;
+}
+
+.f-email a{
+  color: #000;
+  text-decoration: none;
+  padding: 0 5px;
+ 
+  
+}
+
+.f-email a:hover{
+  color: #225bcf;
+  text-decoration: none;
+  
+}
+
+.cont a{
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.cont a:hover{
+  color: #225bcf;
+  text-decoration: none;
+ 
 }
