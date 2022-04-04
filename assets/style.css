@@ -7,6 +7,14 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth!important;
+  overflow-x: hidden;
+	height: 100%;
+}
+
+
 .logo{
   width: 200px;
   margin: 0;
@@ -14,9 +22,7 @@
   padding-bottom: 0.5em;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+
 
 @media (max-width: 800px){
   .logo{
